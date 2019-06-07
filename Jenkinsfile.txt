@@ -10,6 +10,12 @@ pipeline {
                 sh 'mvn clean'
             }
         }
+	
+	stage('PMD') {
+            steps {
+                sh 'mvn site'
+            }
+        }
 		
 		
 		
