@@ -22,7 +22,8 @@ pipeline {
 		      steps {
 			script {
 			  // requires SonarQube Scanner 2.8+
-			  scannerHome = tool 'SonarQube Scanner 2.8'
+			  scannerHome = '/home/home/tools/hudson.plugins.sonar.SonarRunnerInstallation/SonarQube_Scanner_2.8'
+			  //tool 'SonarQube Scanner 2.8'
 			}
 			withSonarQubeEnv('SonarQube Scanner 2.8') {
 			  sh "${scannerHome}/bin/sonar-scanner"
