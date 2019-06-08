@@ -16,31 +16,19 @@ pipeline {
                 sh 'mvn site'
             }
         }
-		
-	//Code starts for stage Static Code Analysis
-		//stage('Static Code Analysis') {
-          //  steps {
-			// script {
-        //  scannerHome = tool 'sonar-scanner'
-      //  }
-				//withSonarQubeEnv('My SonarQube Server')
-				//{
-				sh "${scannerHome}/bin/sonar-scanner"
-				//}
-			//}
-		//}
+	
 		
 		stage('SonarQube analysis') {
-      steps {
-        script {
-          // requires SonarQube Scanner 2.8+
-          scannerHome = tool 'SonarQube Scanner 2.8'
-        }
-        withSonarQubeEnv('SonarQube Scanner') {
-          sh "${scannerHome}/bin/sonar-scanner"
-        }
-      }
-    }
+		      steps {
+			script {
+			  // requires SonarQube Scanner 2.8+
+			  scannerHome = tool 'SonarQube Scanner 2.8'
+			}
+			withSonarQubeEnv('SonarQube Scanner') {
+			  sh "${scannerHome}/bin/sonar-scanner"
+			}
+		      }
+		    }
 		
 		
 		
